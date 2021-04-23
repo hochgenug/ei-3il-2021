@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listing{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <a href="{{ path('task_new') }}" class="btn btn-primary btn-lg btn-block" role="button">Add Task</a>
+    </div>
+
+    <h2>Task todo</h2>
+    {% if tasks_todo |length > 0 %}
+        {% for task in tasks_todo %}
+            <div class="card mt-4" style="border-left: 5px solid {#Exercice 11#}">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12">
+                            <p>Date: Exercice 6</p>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <p>Task: {{ task.title }}</p>
+                        </div>
+                        <div class="col-md-5 col-sm-12">
+                            <div class="btn-group float-right" role="group" aria-label="Options">
+                                <a href="{{ path('task_toogle', { id:task.id}) }}"
+                                   class="btn btn-success">Completed</a>
+                                <a href="{{ path('task_delete', { id:task.id}) }}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-secondary">No tasks registered</p>
+    {% endif %}
+
+
+    {% if tasks_done is iterable %}
+        <h2>Task done</h2>
+        {% for task in tasks_done %}
+            <div class="card mt-4" style="border-left: 5px solid black">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12">
+                            <p>Date: Exercice 6</p>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <p>Task: {{ task.title }}</p>
+                        </div>
+                        <div class="col-md-5 col-sm-12">
+                            <div class="btn-group float-right" role="group" aria-label="Options">
+                                <a href="{{ path('task_toogle', { id:task.id}) }}"
+                                   class="btn btn-success">Back to todo</a>
+                                <a href="{{ path('task_delete', { id:task.id}) }}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-secondary">No tasks registered</p>
+    {% endif %}
+
+    <div class="row">
+        <a href="{{ path('task_delete_all_done') }}" class="btn btn-secondary btn-lg btn-block" role="button">
+            Delete all tasks done</a>
+    </div>
+{% endblock %}
