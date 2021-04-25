@@ -19,7 +19,8 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
-    public function getTaskTodoOrderedByPriority(){
-        # Exercice X
+    public function getTaskTodoOrderedByPriority()
+    {
+        # Exercice 12
     }
 }

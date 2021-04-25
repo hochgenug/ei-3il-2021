@@ -35,7 +35,7 @@ class TaskController extends AbstractController
      */
     public function newAction(Request $request): Response
     {
-        # Exercice 2
+        # Exercice 3
         return $this->render(
             'task/new.html.twig'
         );
@@ -46,7 +46,7 @@ class TaskController extends AbstractController
      */
     public function toogleTaskAction(int $id): Response
     {
-        # Exercice 4
+        # Exercice 5
         return $this->redirectToRoute("task_index");
     }
 
@@ -55,7 +55,7 @@ class TaskController extends AbstractController
      */
     public function deleteTaskAction(int $id): Response
     {
-        # Exercice 5
+        # Exercice 6
         return $this->redirectToRoute("task_index");
     }
 
