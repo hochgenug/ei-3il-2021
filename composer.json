@@ -46,7 +46,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/hochgenug/ei_todo"
+            "url": "https://github.com/hochgenug/ei-3il-2021"
         }
     ],
     "config": {
