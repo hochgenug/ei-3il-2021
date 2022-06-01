@@ -10,14 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/task/", name="task_")
- */
+#[Route('/task', name: 'task_')]
 class TaskController extends AbstractController
 {
-    /**
-     * @Route("", name="index")
-     */
+    #[Route('', name: 'index')]
     public function index(): Response
     {
         # Exercice 1 & 12
@@ -30,9 +26,7 @@ class TaskController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("new", name="new")
-     */
+    #[Route('new', name: 'new')]
     public function newAction(Request $request): Response
     {
         # Exercice 3
@@ -41,27 +35,21 @@ class TaskController extends AbstractController
         );
     }
 
-    /**
-     * @Route("toogle/{id}", name="toogle")
-     */
+    #[Route('toogle/{id}', name: 'toogle')]
     public function toogleTaskAction(int $id): Response
     {
         # Exercice 5
         return $this->redirectToRoute("task_index");
     }
 
-    /**
-     * @Route("delete/{id}", name="delete", requirements={"id": "\d+" })
-     */
+    #[Route('delete/{id<\d+>}', name: 'delete')]
     public function deleteTaskAction(int $id): Response
     {
         # Exercice 6
         return $this->redirectToRoute("task_index");
     }
 
-    /**
-     * @Route("delete/all_done", name="delete_all_done")
-     */
+    #[Route('delete/all_done', name: 'delete_all_done')]
     public function deleteAllTaskDoneAction(): Response
     {
         # Exercice 9
